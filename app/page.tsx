@@ -49,7 +49,7 @@ export default function Home() {
   };
 
   return (
-    <div className="font-sans min-h-screen flex flex-col">
+    <div className="font-sans min-h-screen min-h-[100dvh] flex flex-col">
       <header className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 h-[50px]">
         <div className="flex flex-row items-center p-2 w-full gap-2 h-full">
           <Image src="/logo.svg" alt="PipeDream" width={20} height={20} />
