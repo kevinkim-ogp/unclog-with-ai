@@ -1,3 +1,5 @@
+import { getAppName, getEventName } from "@/app/helper";
+
 interface StepProps {
   stepNumber: number;
   app: string;
@@ -19,14 +21,16 @@ export default function Step({
           {stepNumber}
         </div>
         <h3 className="text-lg font-semibold text-gray-900 transition-colors duration-200">
-          {app}
+          {getAppName(app) ?? app}
         </h3>
       </div>
 
       {/* App Key as Title */}
 
       {/* Key as Subtitle */}
-      <p className="text-sm text-gray-500 font-medium">{event}</p>
+      <p className="text-sm text-gray-500 font-medium">
+        {getEventName(event) ?? event}
+      </p>
 
       {/* Optional Action Indicator */}
       <div className="mt-4 flex items-center text-xs text-gray-400 transition-colors duration-200">
