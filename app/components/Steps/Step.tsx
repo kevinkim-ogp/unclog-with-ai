@@ -11,12 +11,8 @@ export default function Step({
   event,
   description,
 }: StepProps) {
-  console.log(stepNumber, app, event, description);
   return (
-    <div
-      key={`${stepNumber}-${app}-${event}`}
-      className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-gray-300 transition-all duration-200 p-6 cursor-pointer group"
-    >
+    <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-gray-300 transition-all duration-200 p-6 cursor-pointer group">
       {/* Step Number */}
       <div className="flex items-center mb-4 gap-2 align-middle">
         <div className="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold group-hover:bg-blue-200 transition-colors duration-200">

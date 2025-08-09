@@ -15,16 +15,27 @@ interface WorkflowOutput {
 }
 
 export default function Home() {
+  const [error, setError] = useState<string | null>("test");
   const [input, setInput] = useState("");
-  const [output, setOutput] = useState<WorkflowOutput | null>(null);
+  const [output, setOutput] = useState<WorkflowOutput | null>();
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleGenerate = async () => {
-    const response = await fetch("/api/generate", {
-      method: "POST",
-      body: JSON.stringify({ message: input }),
-    });
-    const data = await response.json();
-    console.log(data);
-    setOutput(JSON.parse(data.output));
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        body: JSON.stringify({ message: input }),
+      });
+      const data = await response.json();
+      console.log(data);
+      setOutput(JSON.parse(data.output));
+    } catch (error) {
+      console.error(error);
+      setError("Failed to generate workflow. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -57,6 +68,7 @@ export default function Home() {
                 input={input}
                 setInput={setInput}
                 handleGenerate={handleGenerate}
+                isLoading={isLoading}
               />
             </div>
           </div>
