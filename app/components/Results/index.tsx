@@ -15,25 +15,29 @@ export default function Results({
   handleRefine,
 }: ResultsProps) {
   return (
-    <div className="flex flex-col p-4 pb-[50px] w-full overflow-y-auto max-h-[calc(100vh-50px)]">
-      <div className="flex flex-col items-center justify-center p-4 w-full gap-4">
-        <div className="text-l font-bold mb-4 w-full max-w-[500px] mx-auto">
-          {input}
+    <div className="flex flex-col w-full h-full overflow-y-visible pb-[60px]">
+      <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
+        <div className="flex flex-col items-center p-4 w-full gap-4">
+          <div className="text-l font-bold w-full max-w-[500px] mx-auto">
+            {input}
+          </div>
+          <div className="flex flex-row gap-4">
+            <button
+              className="bg-[#F9DDE9] text-[#cf1a68] px-4 py-2 rounded-md"
+              onClick={handleRefine}
+            >
+              Refine your query
+            </button>
+            <button
+              className="bg-[#cf1a68] text-white px-4 py-2 rounded-md"
+              onClick={handleReset}
+            >
+              Ask Mario about another workflow
+            </button>
+          </div>
         </div>
-        <div className="flex flex-row gap-4">
-          <button
-            className="bg-[#F9DDE9] text-[#cf1a68] px-4 py-2 rounded-md"
-            onClick={handleRefine}
-          >
-            Refine your query
-          </button>
-          <button
-            className="bg-[#cf1a68] text-white px-4 py-2 rounded-md"
-            onClick={handleReset}
-          >
-            Ask Mario about another workflow
-          </button>
-        </div>
+      </div>
+      <div className="p-4 pb-4">
         <Steps trigger={output.trigger} actions={output.actions} />
       </div>
     </div>

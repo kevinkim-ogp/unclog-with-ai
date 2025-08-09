@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <div className="font-sans min-h-screen flex flex-col">
-      <main className="flex-1 overflow-y-auto flex flex-col gap-[32px] items-center sm:items-start w-full p-8 pb-24">
+      <main className="flex-1 overflow-visible flex flex-col items-center sm:items-start w-full">
         {output ? (
           <Results
             input={input}
@@ -71,7 +71,7 @@ export default function Home() {
           </div>
         )}
       </main>
-      <footer className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 flex gap-[24px] flex-wrap items-center justify-center z-10">
+      <footer className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 flex gap-[24px] flex-wrap items-center justify-center z-10 h-[50px]">
         <div className="text-sm text-gray-500">
           This is a beta version, cut Mario some slack.
         </div>
