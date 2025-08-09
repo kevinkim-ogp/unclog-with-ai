@@ -2,6 +2,7 @@
 import { useState } from "react";
 import PromptInput from "./components/PromptInput";
 import Steps from "./components/Steps";
+import Results from "./components/Results";
 
 type StepItem = {
   app: string;
@@ -9,7 +10,7 @@ type StepItem = {
   description: string;
 };
 
-interface WorkflowOutput {
+export interface WorkflowOutput {
   trigger: StepItem;
   actions: StepItem[];
 }
@@ -43,24 +44,20 @@ export default function Home() {
     setInput("");
   };
 
+  const handleRefine = () => {
+    setOutput(null);
+  };
+
   return (
     <div className="font-sans min-h-screen flex flex-col">
       <main className="flex-1 overflow-y-auto flex flex-col gap-[32px] items-center sm:items-start w-full p-8 pb-24">
         {output ? (
-          <div className="flex flex-col p-4 w-full">
-            <div className="flex flex-col items-center justify-center p-4 w-full gap-4">
-              <div className="text-l font-bold mb-4 w-full max-w-[500px] mx-auto">
-                {input}
-              </div>
-              <Steps trigger={output.trigger} actions={output.actions} />
-              <button
-                className="bg-[#cf1a68] text-white px-4 py-2 rounded-md"
-                onClick={handleReset}
-              >
-                Ask Mario about another workflow
-              </button>
-            </div>
-          </div>
+          <Results
+            input={input}
+            output={output}
+            handleReset={handleReset}
+            handleRefine={handleRefine}
+          />
         ) : (
           <div className="flex flex-col p-4 w-full flex-1">
             <div className="flex flex-1 items-center justify-center w-full">
