@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
       - If the trigger is unclear, you should prioritise formsg over webhook.
       - If there is mention of integration as the start of the workflow, the trigger is most likely a webhook.
       - Most reminder workflows start with a scheduler trigger.
+      - As much as possible, try to consider all other triggers before using a webhook.
 
     The actions property must adhere to the following rules:
       - The 'app' must be one of "calculator", "formatter", "custom-api", "delay", "formatter", "lettersg", "m365-excel", "paysg", "postman", "postman-sms", "slack", "telegram-bot", "tiles", or "toolbox".
