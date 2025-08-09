@@ -4,10 +4,12 @@ interface StepsProps {
   trigger: {
     app: string;
     event: string;
+    description: string;
   };
   actions: {
     app: string;
     event: string;
+    description: string;
   }[];
 }
 
