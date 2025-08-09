@@ -2,6 +2,22 @@ export const actionSchema = {
   type: "array",
   items: {
     anyOf: [
+      // CUSTOM API
+      {
+        type: "object",
+        description: "Custom API action allows you to make a HTTP request to a specified URL, with the option to add headers and JSON body.",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["custom-api"],
+          },
+          event: {
+            type: "string",
+            enum: ["http-request"],
+          },
+        },
+        required: ["app", "event"],
+      },
       // M365 EXCEL
       {
         description: `
@@ -63,6 +79,47 @@ export const actionSchema = {
         required: ["app", "event"],
       },
       // SLACK
+      // TELEGRAM-BOT
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["telegram-bot"],
+          },
+          event: {
+            type: "string",
+            enum: ["send-message"],
+          },
+        },
+        required: ["app", "event"],
+      },
+      // TILES
+      {
+        description: `
+            This is the Tiles action, which allows you to perform actions on a Tile. Tiles is a platform designed for storing and sharing flat data, providing a seamless experience similar to using a spreadsheet application like Excel. The available actions are:
+                - create-row: creates a new row in the Tile
+                - find-single-row: gets the first row from the table that match the filters
+                - find-multiple-rows: gets all rows from the table that match the filters
+                - update-row: updates a specific row in the table based on the tile row id
+          `,
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["tiles"],
+          },
+          event: {
+            type: "string",
+            enum: [
+              "create-row",
+              "find-single-row",
+              "find-multiple-rows",
+              "update-row",
+            ],
+          },
+        },
+      },
     ],
   },
 };
