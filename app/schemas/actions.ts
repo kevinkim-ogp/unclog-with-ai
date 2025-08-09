@@ -5,7 +5,8 @@ export const actionSchema = {
       // CUSTOM API
       {
         type: "object",
-        description: "Custom API action allows you to make a HTTP request to a specified URL, with the option to add headers and JSON body.",
+        description:
+          "Custom API action allows you to make a HTTP request to a specified URL, with the option to add headers and JSON body.",
         properties: {
           app: {
             type: "string",
@@ -15,8 +16,11 @@ export const actionSchema = {
             type: "string",
             enum: ["http-request"],
           },
+          description: {
+            type: "string",
+          },
         },
-        required: ["app", "event"],
+        required: ["app", "event", "description"],
       },
       // M365 EXCEL
       {
@@ -42,7 +46,11 @@ export const actionSchema = {
               "update-table-row",
             ],
           },
+          description: {
+            type: "string",
+          },
         },
+        required: ["app", "event", "description"],
       },
       // POSTMAN
       {
@@ -58,8 +66,11 @@ export const actionSchema = {
             type: "string",
             enum: ["send-email"],
           },
+          description: {
+            type: "string",
+          },
         },
-        required: ["app", "event"],
+        required: ["app", "event", "description"],
       },
       // POSTMAN SMS
       {
@@ -75,8 +86,11 @@ export const actionSchema = {
             type: "string",
             enum: ["send-sms"],
           },
+          description: {
+            type: "string",
+          },
         },
-        required: ["app", "event"],
+        required: ["app", "event", "description"],
       },
       // SLACK
       // TELEGRAM-BOT
@@ -91,8 +105,11 @@ export const actionSchema = {
             type: "string",
             enum: ["send-message"],
           },
+          description: {
+            type: "string",
+          },
         },
-        required: ["app", "event"],
+        required: ["app", "event", "description"],
       },
       // TILES
       {
@@ -118,7 +135,11 @@ export const actionSchema = {
               "update-row",
             ],
           },
+          description: {
+            type: "string",
+          },
         },
+        required: ["app", "event", "description"],
       },
     ],
   },

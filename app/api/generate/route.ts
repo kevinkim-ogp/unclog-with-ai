@@ -18,6 +18,9 @@ export async function POST(request: NextRequest) {
         - If the 'app' is "scheduler", the 'event' must be one of "every-day", "every-hour", "every-week", or "every-month".
         - If the 'app' is "webhook", the 'event' should be a free-form string representing a custom webhook endpoint, such as "catch-raw-webhook".
 
+    Additional information for the trigger:
+      - If the trigger is unclear, you should prioritise formsg over webhook.
+
     The actions property must adhere to the following rules:
       - The 'app' must be one of "calculator", "formatter", "custom-api", "delay", "formatter", "lettersg", "m365-excel", "paysg", "postman", "postman-sms", "slack", "telegram-bot", "tiles", or "toolbox".
       - The 'event' value depends on the 'app':
@@ -35,6 +38,8 @@ export async function POST(request: NextRequest) {
         - If the 'app' is "tiles", the 'event' must be one of "create-row", "find-multiple-rows", "find-single-row", or "update-row".
         - If the 'app' is "toolbox", the 'event' must be one of "if-then", "for-each", or "only-continue-if".
 
+      The description property in both trigger and actions must be a short description of which part of the workflow this action addresses.
+
       Now, create a workflow object based on the user request: ${message}.
     `,
     config: {
@@ -45,6 +50,25 @@ export async function POST(request: NextRequest) {
           trigger: {
             description: "This is the action that starts the workflow",
             anyOf: [
+              {
+                description:
+                  "This is a formsg trigger, which starts the workflow when a new submission is received",
+                type: "object",
+                properties: {
+                  app: {
+                    type: "string",
+                    enum: ["formsg"],
+                  },
+                  event: {
+                    type: "string",
+                    enum: ["new-submission"],
+                  },
+                  description: {
+                    type: "string",
+                  },
+                },
+                required: ["app", "event", "description"],
+              },
               {
                 description:
                   "This is a scheduler trigger, which starts the workflow at a specified interval based on the event",
@@ -58,8 +82,11 @@ export async function POST(request: NextRequest) {
                     type: "string",
                     enum: ["every-day", "every-hour", "every-week"],
                   },
+                  description: {
+                    type: "string",
+                  },
                 },
-                required: ["app", "event"],
+                required: ["app", "event", "description"],
               },
               {
                 description:
@@ -73,22 +100,6 @@ export async function POST(request: NextRequest) {
                   event: {
                     type: "string",
                     enum: ["catch-raw-webhook"],
-                  },
-                },
-                required: ["app", "event"],
-              },
-              {
-                description:
-                  "This is a formsg trigger, which starts the workflow when a new submission is received",
-                type: "object",
-                properties: {
-                  app: {
-                    type: "string",
-                    enum: ["formsg"],
-                  },
-                  event: {
-                    type: "string",
-                    enum: ["new-submission"],
                   },
                 },
                 required: ["app", "event"],
