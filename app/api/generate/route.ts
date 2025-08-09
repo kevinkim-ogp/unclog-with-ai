@@ -64,6 +64,7 @@ export async function POST(request: NextRequest) {
       Additional information for actions:
         - If sending reminder is unclear, the priority is to use: email, then SMS, then telegram.
         - The "for-each" action is used to loop through a list of items that is passed to it. Any actions added after the "for-each" action will be executed for each item in the list.
+        - Usually routing queries require the use of "if-then" actions, and there are usually actions after the "if-then" action.
 
       The description property in both trigger and actions must be a short description of which part of the workflow this action addresses.
 
