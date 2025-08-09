@@ -6,6 +6,7 @@ import Steps from "./components/Steps";
 type StepItem = {
   app: string;
   event: string;
+  description: string;
 };
 
 interface WorkflowOutput {
