@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import PromptInput from "./components/PromptInput";
-import Steps from "./components/Steps";
 import Results from "./components/Results";
+import Image from "next/image";
 
 type StepItem = {
   app: string;
@@ -50,6 +50,14 @@ export default function Home() {
 
   return (
     <div className="font-sans min-h-screen flex flex-col">
+      <header className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 h-[50px]">
+        <div className="flex flex-row items-center p-2 w-full gap-2 h-full">
+          <Image src="/logo.svg" alt="PipeDream" width={20} height={20} />
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#F9DDE9] text-[#cf1a68] dark:bg-[#cf1a68] dark:text-[#F9DDE9] border border-[#cf1a68]/20 dark:border-[#F9DDE9]/20">
+            BETA
+          </span>
+        </div>
+      </header>
       <main className="flex-1 overflow-visible flex flex-col items-center sm:items-start w-full">
         {output ? (
           <Results
