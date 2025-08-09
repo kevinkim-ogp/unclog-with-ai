@@ -46,7 +46,7 @@ export default function ChatGPTInput({
               />
             </div>
           )}
-          <h3 className="text-2xl font-bold text-center mb-4 text-gray-500">
+          <h3 className="text-lg sm:text-2xl font-bold text-center mb-4 text-gray-500">
             Need help unclogging some Pipes?
           </h3>
           <div className="flex items-end bg-white border border-gray-200 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-200 p-3">
