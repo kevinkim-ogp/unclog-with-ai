@@ -16,7 +16,7 @@ export default function Results({
 }: ResultsProps) {
   return (
     <div className="flex flex-col w-full h-full overflow-y-visible pb-[60px]">
-      <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
+      <div className="sticky top-0 z-10 bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800">
         <div className="flex flex-col items-center p-4 w-full gap-4">
           <div className="text-l font-bold w-full max-w-[500px] mx-auto">
             {input}

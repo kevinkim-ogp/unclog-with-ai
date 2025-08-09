@@ -71,8 +71,8 @@ export default function Home() {
           </div>
         )}
       </main>
-      <footer className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-3 flex gap-[24px] flex-wrap items-center justify-center z-10 h-[50px]">
-        <div className="text-sm text-gray-500">
+      <footer className="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 py-3 flex gap-[24px] flex-wrap items-center justify-center z-10 h-[50px]">
+        <div className="text-sm text-gray-500 dark:text-gray-400">
           This is a beta version, cut Mario some slack.
         </div>
       </footer>
