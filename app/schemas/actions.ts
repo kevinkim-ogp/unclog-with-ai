@@ -22,6 +22,61 @@ export const actionSchema = {
         },
         required: ["app", "event", "description"],
       },
+      // DELAY
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["delay"],
+          },
+          event: {
+            type: "string",
+            enum: ["delay-for", "delay-until"],
+          },
+          description: {
+            type: "string",
+          },
+        },
+        required: ["app", "event", "description"],
+      },
+      // FORMATTER
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["formatter"],
+          },
+          event: {
+            type: "string",
+            enum: ["add-subtract-date-time", "convert-date-time"],
+          },
+          description: {
+            type: "string",
+          },
+        },
+        required: ["app", "event", "description"],
+      },
+
+      // LETTERSG
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["lettersg"],
+          },
+          event: {
+            type: "string",
+            enum: ["create-letter"],
+          },
+          description: {
+            type: "string",
+          },
+        },
+        required: ["app", "event", "description"],
+      },
       // M365 EXCEL
       {
         description: `
@@ -52,6 +107,30 @@ export const actionSchema = {
         },
         required: ["app", "event", "description"],
       },
+      // PAYSG
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["paysg"],
+          },
+          event: {
+            type: "string",
+            enum: [
+              "create-payment",
+              "create-payment-form-submission",
+              "create-payment-form-submission-subscription",
+              "get-payment",
+              "send-email",
+            ],
+          },
+          description: {
+            type: "string",
+          },
+        },
+        required: ["app", "event", "description"],
+      },
       // POSTMAN
       {
         description:
@@ -64,7 +143,7 @@ export const actionSchema = {
           },
           event: {
             type: "string",
-            enum: ["send-email"],
+            enum: ["send-transactional-email"],
           },
           description: {
             type: "string",
@@ -93,6 +172,23 @@ export const actionSchema = {
         required: ["app", "event", "description"],
       },
       // SLACK
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["slack"],
+          },
+          event: {
+            type: "string",
+            enum: ["find-message", "send-message-to-channel"],
+          },
+          description: {
+            type: "string",
+          },
+        },
+        required: ["app", "event", "description"],
+      },
       // TELEGRAM-BOT
       {
         type: "object",
@@ -134,6 +230,24 @@ export const actionSchema = {
               "find-multiple-rows",
               "update-row",
             ],
+          },
+          description: {
+            type: "string",
+          },
+        },
+        required: ["app", "event", "description"],
+      },
+      // TOOLBOX
+      {
+        type: "object",
+        properties: {
+          app: {
+            type: "string",
+            enum: ["toolbox"],
+          },
+          event: {
+            type: "string",
+            enum: ["if-then", "for-each", "only-continue-if"],
           },
           description: {
             type: "string",
