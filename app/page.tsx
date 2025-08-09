@@ -54,7 +54,7 @@ export default function Home() {
               </div>
               <Steps trigger={output.trigger} actions={output.actions} />
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="bg-[#cf1a68] text-white px-4 py-2 rounded-md"
                 onClick={handleReset}
               >
                 Ask Mario about another workflow

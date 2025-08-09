@@ -75,7 +75,7 @@ export default function ChatGPTInput({
                 isLoading
                   ? "bg-gray-900 text-white opacity-80"
                   : input.trim()
-                  ? "bg-gray-900 hover:bg-gray-700 text-white shadow-sm hover:shadow-md"
+                  ? "bg-[#cf1a68] hover:bg-gray-700 text-white shadow-sm hover:shadow-md"
                   : "bg-gray-200 text-gray-400 cursor-not-allowed"
               }`}
             >

@@ -15,10 +15,10 @@ export default function Step({
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-gray-300 transition-all duration-200 p-6 cursor-pointer group">
       {/* Step Number */}
       <div className="flex items-center mb-4 gap-2 align-middle">
-        <div className="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold group-hover:bg-blue-200 transition-colors duration-200">
+        <div className="flex items-center justify-center w-8 h-8 bg-[#F9DDE9] text-[#cf1a68] rounded-full text-sm font-semibold transition-colors duration-200">
           {stepNumber}
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+        <h3 className="text-lg font-semibold text-gray-900 transition-colors duration-200">
           {app}
         </h3>
       </div>
@@ -29,7 +29,7 @@ export default function Step({
       <p className="text-sm text-gray-500 font-medium">{event}</p>
 
       {/* Optional Action Indicator */}
-      <div className="mt-4 flex items-center text-xs text-gray-400 group-hover:text-blue-500 transition-colors duration-200">
+      <div className="mt-4 flex items-center text-xs text-gray-400 transition-colors duration-200">
         <svg
           width="12"
           height="12"
