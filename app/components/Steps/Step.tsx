@@ -49,7 +49,7 @@ export default function Step({
             strokeLinejoin="round"
           />
         </svg>
-        <p className="text-xs text-gray-400 dark:text-gray-500">
+        <p className="text-sm text-gray-400 dark:text-gray-500">
           {description}
         </p>
       </div>
