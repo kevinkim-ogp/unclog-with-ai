@@ -49,8 +49,8 @@ export default function Home() {
   };
 
   return (
-    <div className="font-sans min-h-screen min-h-[100dvh] flex flex-col">
-      <header className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 h-[50px]">
+    <div className="font-sans h-screen h-[100dvh] flex flex-col overflow-hidden">
+      <header className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 h-[50px] flex-shrink-0">
         <div className="flex flex-row items-center p-2 w-full gap-2 h-full">
           <Image src="/logo.svg" alt="PipeDream" width={20} height={20} />
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#F9DDE9] text-[#cf1a68] dark:bg-[#cf1a68] dark:text-[#F9DDE9] border border-[#cf1a68]/20 dark:border-[#F9DDE9]/20">
@@ -58,7 +58,7 @@ export default function Home() {
           </span>
         </div>
       </header>
-      <main className="flex-1 overflow-visible flex flex-col items-center sm:items-start w-full">
+      <main className="flex-1 overflow-hidden flex flex-col items-center sm:items-start w-full">
         {output ? (
           <Results
             input={input}
@@ -67,7 +67,7 @@ export default function Home() {
             handleRefine={handleRefine}
           />
         ) : (
-          <div className="flex flex-col p-4 w-full flex-1">
+          <div className="flex flex-col p-4 w-full flex-1 overflow-hidden">
             <div className="flex flex-1 items-center justify-center w-full">
               <PromptInput
                 input={input}
@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         )}
       </main>
-      <footer className="sticky bottom-0 left-0 right-0 bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 py-3 flex gap-[24px] flex-wrap items-center justify-center z-10 h-[50px]">
+      <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 py-3 flex gap-[24px] flex-wrap items-center justify-center z-10 h-[50px] flex-shrink-0">
         <div className="text-sm text-gray-500 dark:text-gray-400">
           This is a beta version, cut Mario some slack.
         </div>

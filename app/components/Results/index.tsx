@@ -15,8 +15,8 @@ export default function Results({
   handleRefine,
 }: ResultsProps) {
   return (
-    <div className="flex flex-col w-full h-full overflow-y-visible pb-[60px]">
-      <div className="sticky top-0 z-10 bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800">
+    <div className="flex flex-col w-full h-full overflow-hidden">
+      <div className="bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-gray-800 flex-shrink-0">
         <div className="flex flex-col items-center p-4 w-full gap-4">
           <div className="text-l font-bold w-full max-w-[500px] mx-auto">
             {input}
@@ -37,7 +37,7 @@ export default function Results({
           </div>
         </div>
       </div>
-      <div className="p-4 pb-4">
+      <div className="flex-1 overflow-y-auto p-4 pb-4">
         <Steps trigger={output.trigger} actions={output.actions} />
       </div>
     </div>

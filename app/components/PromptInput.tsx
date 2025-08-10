@@ -33,7 +33,7 @@ export default function ChatGPTInput({
   };
 
   return (
-    <div className="flex items-center justify-center p-4 w-full">
+    <div className="flex items-center justify-center p-4 w-full h-full">
       <div className="w-full max-w-4xl">
         <div className="relative">
           {/* <div className="flex items-center justify-center h-screen"></div> */}
@@ -67,6 +67,10 @@ export default function ChatGPTInput({
                 const target = e.currentTarget;
                 target.style.height = "auto";
                 target.style.height = Math.min(target.scrollHeight, 200) + "px";
+              }}
+              onFocus={(e) => {
+                // Prevent iOS Safari from zooming in on input focus
+                e.currentTarget.style.fontSize = "16px";
               }}
             />
             <button
