@@ -69,6 +69,11 @@ export async function POST(request: NextRequest) {
 
       The description property in both trigger and actions must be a short description of which part of the workflow this action addresses.
 
+      These are some common use cases:
+        - Schedule reminders to a list of people: scheduler (daily) -> tiles (find-multiple-rows) -> toolbox (for each) -> postman (send-email) -> tiles (update-row)
+        - Notify form respondents: formsg (new submission) -> postman (send-email)
+        - Attendance taking: formsg (new-submission) -> tiles (find-single-row) -> toolbox (if-then): walk-in attendee -> tiles (create-row) -> toolbox (if-then): update prior registrant -> tiles (update-row)
+
       Now, create a workflow object based on the user request: ${message}.
     `,
     config: {
